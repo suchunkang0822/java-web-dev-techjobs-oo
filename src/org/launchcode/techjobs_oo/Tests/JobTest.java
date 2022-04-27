@@ -19,11 +19,11 @@ public class JobTest {
 
     @Before
     public void createJobs(){
-        job1 = new Job();
-        job2 = new Job();
+        job1 = new Job("",new Employer(""),new Location(""),new PositionType(""),new CoreCompetency(""));
+        job2 = new Job("",new Employer(""),new Location(""),new PositionType(""),new CoreCompetency(""));
         job3 = new Job ("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         job4 = new Job ("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        job5 = new Job ("Software Developer",null,null,null,null);
+        job5 = new Job ("Software Developer",new Employer(""),new Location(""),new PositionType(""),new CoreCompetency(""));
 
     }
 
@@ -68,8 +68,8 @@ public class JobTest {
                 "Employer: "+"ACME"+"\n"+
                 "Location: "+"Desert"+"\n"+
                 "Position Type: "+"Quality control"+"\n"+
-                "Core Competency: "+"Persistence"+"\n"+
-                "\n");
+                "Core Competency: "+"Persistence"+"\n"
+                );
     }
 
     @Test
@@ -80,8 +80,8 @@ public class JobTest {
                 "Employer: "+"Data not available"+"\n"+
                 "Location: "+"Data not available"+"\n"+
                 "Position Type: "+"Data not available"+"\n"+
-                "Core Competency: "+"Data not available"+"\n"+
-                "\n");
+                "Core Competency: "+"Data not available"+"\n"
+                );
     }
 
 

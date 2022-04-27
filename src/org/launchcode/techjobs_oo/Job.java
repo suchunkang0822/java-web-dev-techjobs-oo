@@ -53,41 +53,27 @@ public class Job {
     @Override
     public String toString(){
 //
-        if(Stream.of(name,employer,location,positionType,coreCompetency).allMatch(Objects::isNull)){
+        if(Stream.of(name,employer.getValue(),location.getValue(),positionType.getValue(),coreCompetency.getValue()).allMatch(String::isEmpty)){
             return "OOPS! This job does not seem to exist.";
         }
 
-//        String[] output = new String[6];
-//        output[0] = id+"";
-//        output[1] = returnValue(name);
-//        output[2] = returnValue(employer);
-//        output[3] = returnValue(location);
-//        output[4] = returnValue(positionType);
-//        output[5] = returnValue(coreCompetency);
 
         return "\n" +
                 "ID: "+id+"\n"+
                 "Name: "+returnValue(name)+"\n"+
-                "Employer: "+returnValue(employer)+"\n"+
-                "Location: "+returnValue(location)+"\n"+
-                "Position Type: "+returnValue(positionType)+"\n"+
-                "Core Competency: "+returnValue(coreCompetency)+"\n";
+                "Employer: "+returnValue(employer.getValue())+"\n"+
+                "Location: "+returnValue(location.getValue())+"\n"+
+                "Position Type: "+returnValue(positionType.getValue())+"\n"+
+                "Core Competency: "+returnValue(coreCompetency.getValue())+"\n";
     }
 
-    public String returnValue(Object o){
-
-        if(o instanceof String){
-            return (String)o;
-        }else if(o instanceof Employer){
-            return ((Employer)o).getValue();
-        }else if(o instanceof Location){
-            return ((Location)o).getValue();
-        }else if(o instanceof PositionType){
-            return ((PositionType)o).getValue();
-        }else if(o instanceof CoreCompetency){
-            return ((CoreCompetency)o).getValue();
+    public String returnValue(String s){
+        if (s.isEmpty()){
+            return "Data not available";
         }
-        return "Data not available";
+        return s;
+
+
     }
 
 
